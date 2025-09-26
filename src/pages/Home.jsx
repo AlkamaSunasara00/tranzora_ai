@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useTranslation } from '../utils/TranslationContext'; 
+import { useTranslation } from '../utils/TranslationContext';
 import Loader from '../components/Loader';
 import {
   Upload, FileText, Download, Languages, Zap, CheckCircle, ArrowRight,
@@ -17,6 +17,7 @@ import './Home.css';
 import { jsPDF } from "jspdf";
 import { Document, Packer, Paragraph, TextRun } from "docx";
 import { saveAs } from "file-saver";
+import Prism from "../components/Prism";
 
 // DotGrid component (no changes)
 const DotGrid = ({ dotSize = 8, gap = 20, baseColor = "#5227FF", activeColor = "#00d4ff", proximity = 150, shockRadius = 300, shockStrength = 6, resistance = 800, returnDuration = 2 }) => {
@@ -78,7 +79,7 @@ const DotGrid = ({ dotSize = 8, gap = 20, baseColor = "#5227FF", activeColor = "
       });
       animationRef.current = requestAnimationFrame(animate);
     };
-    const handleMouseMove = (e) => { mouseRef.current = { x: e.clientX, y: e.clientY }};
+    const handleMouseMove = (e) => { mouseRef.current = { x: e.clientX, y: e.clientY } };
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     window.addEventListener('mousemove', handleMouseMove);
@@ -93,18 +94,18 @@ const DotGrid = ({ dotSize = 8, gap = 20, baseColor = "#5227FF", activeColor = "
 };
 
 const languages = [
-    { code: 'english', name: 'English', flag: '🇺🇸' },
-    { code: 'spanish', name: 'Spanish', flag: '🇪🇸' },
-    { code: 'french', name: 'French', flag: '🇫🇷' },
-    { code: 'german', name: 'German', flag: '🇩🇪' },
-    { code: 'italian', name: 'Italian', flag: '🇮🇹' },
-    { code: 'portuguese', name: 'Portuguese', flag: '🇵🇹' },
-    { code: 'russian', name: 'Russian', flag: '🇷🇺' },
-    { code: 'japanese', name: 'Japanese', flag: '🇯🇵' },
-    { code: 'chinese', name: 'Chinese', flag: '🇨🇳' },
-    { code: 'korean', name: 'Korean', flag: '🇰🇷' },
-    { code: 'hindi', name: 'Hindi', flag: '🇮🇳' },
-    { code: 'arabic', name: 'Arabic', flag: '🇸🇦' },
+  { code: 'english', name: 'English', flag: '🇺🇸' },
+  { code: 'spanish', name: 'Spanish', flag: '🇪🇸' },
+  { code: 'french', name: 'French', flag: '🇫🇷' },
+  { code: 'german', name: 'German', flag: '🇩🇪' },
+  { code: 'italian', name: 'Italian', flag: '🇮🇹' },
+  { code: 'portuguese', name: 'Portuguese', flag: '🇵🇹' },
+  { code: 'russian', name: 'Russian', flag: '🇷🇺' },
+  { code: 'japanese', name: 'Japanese', flag: '🇯🇵' },
+  { code: 'chinese', name: 'Chinese', flag: '🇨🇳' },
+  { code: 'korean', name: 'Korean', flag: '🇰🇷' },
+  { code: 'hindi', name: 'Hindi', flag: '🇮🇳' },
+  { code: 'arabic', name: 'Arabic', flag: '🇸🇦' },
 ];
 
 const Home = () => {
@@ -252,10 +253,10 @@ const Home = () => {
     doc.text(textLines, 40, 110);
     doc.save(`translation_${selectedLanguage}.pdf`);
   };
-  
+
   const handleDownloadDOCX = async () => {
     const paragraphs = translatedText.split("\n").map(l => new Paragraph({ children: [new TextRun(l)] }));
-    const doc = new Document({ sections: [{ children: [ new Paragraph({ children: [new TextRun({ text: "Translation Result", bold: true, size: 28 })] }), new Paragraph({ children: [new TextRun({ text: `Language: ${selectedLang?.name || "Unknown"}`, italics: true, size: 22 })] }), new Paragraph({}), ...paragraphs ]}]});
+    const doc = new Document({ sections: [{ children: [new Paragraph({ children: [new TextRun({ text: "Translation Result", bold: true, size: 28 })] }), new Paragraph({ children: [new TextRun({ text: `Language: ${selectedLang?.name || "Unknown"}`, italics: true, size: 22 })] }), new Paragraph({}), ...paragraphs] }] });
     const blob = await Packer.toBlob(doc);
     saveAs(blob, `translation_${selectedLanguage}.docx`);
   };
@@ -266,10 +267,23 @@ const Home = () => {
   return (
     <div className="page-container">
       <div className="background-effects">
-        <DotGrid />
+        <div style={{ width: '100%', height: '600px', position: 'relative' }}>
+          <Prism
+            animationType="rotate"
+            timeScale={0.5}
+            height={3.5}
+            baseWidth={5.5}
+            scale={3.6}
+            hueShift={0}
+            colorFrequency={1}
+            noise={0.5}
+            glow={1}
+          />
+        </div>
         <div className="gradient-orb orb1"></div>
         <div className="gradient-orb orb2"></div>
       </div>
+
 
       <div className={`main-container ${isCompact ? 'compact' : ''}`}>
         <header className={`header-section ${isCompact ? 'compact' : ''}`}>
@@ -301,9 +315,9 @@ const Home = () => {
               </div>
             </div>
             <div className="action-buttons-container">
-                <button onClick={resetUpload} className="btn btn-secondary">
-                    <FaUpload /> Translate New Document
-                </button>
+              <button onClick={resetUpload} className="btn btn-secondary">
+                <FaUpload /> Translate New Document
+              </button>
             </div>
           </div>
         )}
@@ -311,25 +325,25 @@ const Home = () => {
         {showDownloadModal && (
           <div className="modal-overlay" onClick={() => setShowDownloadModal(false)}>
             <div className="download-modal" onClick={(e) => e.stopPropagation()}>
-               <div className="modal-header">
-                 <h3>Download Translation</h3>
-                 <button className="close-modal" onClick={() => setShowDownloadModal(false)}><FaTimes /></button>
-               </div>
-               <div className="download-options">
-                 <div className="download-option txt" onClick={() => createHistoryItemAndDownload(handleDownloadTxt, 'TXT')}>
-                   <FaFileAlt className="download-icon" />
-                   <div className="download-info"><strong>Plain Text</strong><p>.txt file</p></div>
-                 </div>
-                 <div className="download-option pdf" onClick={() => createHistoryItemAndDownload(handleDownloadPDF, 'PDF')}>
-                   <FaFilePdf className="download-icon" />
-                   <div className="download-info"><strong>PDF Document</strong><p>.pdf file</p></div>
-                 </div>
-                 <div className="download-option docx" onClick={() => createHistoryItemAndDownload(handleDownloadDOCX, 'DOCX')}>
-                   <FaFileWord className="download-icon" />
-                   <div className="download-info"><strong>Word Document</strong><p>.docx file</p></div>
-                 </div>
-               </div>
-             </div>
+              <div className="modal-header">
+                <h3>Download Translation</h3>
+                <button className="close-modal" onClick={() => setShowDownloadModal(false)}><FaTimes /></button>
+              </div>
+              <div className="download-options">
+                <div className="download-option txt" onClick={() => createHistoryItemAndDownload(handleDownloadTxt, 'TXT')}>
+                  <FaFileAlt className="download-icon" />
+                  <div className="download-info"><strong>Plain Text</strong><p>.txt file</p></div>
+                </div>
+                <div className="download-option pdf" onClick={() => createHistoryItemAndDownload(handleDownloadPDF, 'PDF')}>
+                  <FaFilePdf className="download-icon" />
+                  <div className="download-info"><strong>PDF Document</strong><p>.pdf file</p></div>
+                </div>
+                <div className="download-option docx" onClick={() => createHistoryItemAndDownload(handleDownloadDOCX, 'DOCX')}>
+                  <FaFileWord className="download-icon" />
+                  <div className="download-info"><strong>Word Document</strong><p>.docx file</p></div>
+                </div>
+              </div>
+            </div>
           </div>
         )}
 

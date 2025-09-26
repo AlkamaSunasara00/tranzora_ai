@@ -3,6 +3,8 @@ import { useTranslation } from '../utils/TranslationContext';
 import { FaDownload } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
 import { FaFileAlt } from "react-icons/fa";
+import { FaHistory } from "react-icons/fa";
+
 
 
 
@@ -62,7 +64,8 @@ const History = () => {
 
         {history.length === 0 ? (
           <div className="empty-state">
-            <div className="empty-icon">📚</div>
+            <div className="empty-icon"><FaHistory />
+</div>
             <h3>No translations yet</h3>
             <p>Your translation history will appear here after you download a file.</p>
           </div>
