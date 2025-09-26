@@ -137,3 +137,13 @@
 .download-option.pdf .download-icon { color: var(--color-danger); }
 .download-option.docx:hover { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
 .download-option.docx .download-icon { color: #3b82f6; }
+
+
+
+
+@media (max-width: 768px){
+
+  .page-container{
+  padding: 10px 1rem 2rem 1rem;
+  }
+}
