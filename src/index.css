@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&display=swap");
+
+:root {
+  /* Neural Network Theme Colors */
+  --color-primary: #00d4ff;
+  --color-primary-dark: #0099cc;
+  --color-primary-light: #33ddff;
+  --color-accent: #5227FF;
+  --color-accent-dark: #3d1bdb;
+  --color-accent-light: #7142ff;
+  
+  /* Neural Network Colors */
+  --color-neural-blue: #1e3a8a;
+  --color-neural-purple: #5227FF;
+  --color-neural-cyan: #06b6d4;
+  --color-neural-green: #10b981;
+  
+  /* Dark Theme matching the background */
+  --color-bg-primary: #0a0b0d;
+  --color-bg-secondary: #1a1a1a;
+  --color-bg-card: rgba(255, 255, 255, 0.08);
+  --color-surface: rgba(255, 255, 255, 0.12);
+  
+  /* White Text Colors for dark background */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #e5e5e5;
+  --color-text-muted: #b3b3b3;
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  
+  /* Fonts */
+  --font-primary: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  /* Transitions */
+  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  
+  /* Border Colors */
+  --color-border: rgba(255, 255, 255, 0.2);
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  font-feature-settings: "liga" 1, "kern" 1;
+  min-height: 100vh;
+}
+
+/* Ensure all text is white/light colored */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text-primary);
+}
+
+p, span, div {
+  color: var(--color-text-primary);
+}
+
+/* Button styles */
+button {
+  font-family: var(--font-primary);
+}
+
+/* Input styles */
+input, textarea, select {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem;
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
