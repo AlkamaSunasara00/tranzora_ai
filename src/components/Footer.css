@@ -1,5 +1,5 @@
 .footer {
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-bg-secondary); /* Changed for better separation */
   color: var(--color-text-secondary);
   padding: 4rem 2rem 2rem 2rem;
   border-top: 1px solid var(--glass-border);
@@ -78,7 +78,7 @@
 
 .footer-links-group a:hover {
   color: var(--color-primary);
-  padding-left: 5px;
+  /* padding-left: 5px; */
 }
 
 .footer-bottom {
@@ -148,3 +148,4 @@
     text-align: center;
   }
 }
+
