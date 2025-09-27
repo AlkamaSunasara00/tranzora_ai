@@ -4,6 +4,8 @@ import Loader from "../components/Loader";
 import { FaUpload, FaFilePdf, FaFileWord, FaFileAlt, FaImage, FaCloudUploadAlt, FaCheckCircle, FaRobot, FaTimes, FaDownload, FaGlobe } from "react-icons/fa";
 import { MdTranslate, MdDocumentScanner } from "react-icons/md";
 import { ChevronDown } from "lucide-react";
+import { Sparkles } from "lucide-react";
+
 import Prism from "../components/Prism";
 import { jsPDF } from "jspdf";
 import { Document, Packer, Paragraph, TextRun } from "docx";
@@ -204,7 +206,12 @@ const Home = () => {
       <div className="main-container">
         <header className="header-section">
           <p className="subtitle">AI-Powered Translation Magic</p>
-          <div className="tagline">Upload • Translate • Download</div>
+          <div className="tagline">
+            <Sparkles className="sparkle-icon" />
+            Upload • Translate • Download
+            <Sparkles className="sparkle-icon" />
+          </div>
+
         </header>
         {translatedText && (
           <div ref={previewRef} className="results-preview-container">
