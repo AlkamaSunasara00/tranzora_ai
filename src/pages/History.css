@@ -227,12 +227,12 @@ body {
   font-weight: 600; cursor: pointer; transition: var(--transition-smooth);
 }
 .btn-primary { background: var(--color-primary); color: #000; }
-.btn-primary:hover { background: white; transform: scale(1.05); }
+.btn-primary:hover { background: rgb(60, 60, 60); transform: scale(1.05); color: #ffffff; }
 .btn-secondary {
-  background: var(--glass-bg); color: var(--color-text-secondary);
+  background: rgba(99, 98, 98, 0.703); color: var(--color-text-secondary);
   border: 1px solid var(--glass-border);
 }
-.btn-secondary:hover { background: rgba(255, 255, 255, 0.15); color: #fff; }
+.btn-secondary:hover { background: rgba(40, 40, 40, 0.815); color: #fff; }
 
 .clear-btn {
   background: transparent;
