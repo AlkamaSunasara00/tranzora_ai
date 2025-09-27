@@ -411,16 +411,18 @@ const Home = () => {
       </div>
       
       <div className="main-container">
-        <header className={`header-section ${isCompact ? 'compact' : ''}`}>
-          <p className={`subtitle ${isCompact ? 'compact' : ''}`}>
-            AI-Powered Translation Magic
-          </p>
-          <div className="tagline">
-            <Sparkles className="sparkle-icon" />
-            Upload • Translate • Download
-            <Sparkles className="sparkle-icon" />
-          </div>
-        </header>
+        {!translatedText && (
+          <header className={`header-section ${isCompact ? 'compact' : ''}`}>
+            <p className={`subtitle ${isCompact ? 'compact' : ''}`}>
+              AI-Powered Translation Magic
+            </p>
+            <div className="tagline">
+              <Sparkles className="sparkle-icon" />
+              Upload • Translate • Download
+              <Sparkles className="sparkle-icon" />
+            </div>
+          </header>
+        )}
 
         {translatedText && (
           <div ref={previewRef} className="results-preview-container">
@@ -566,7 +568,7 @@ const Home = () => {
               {isProcessing ? (
                 <div className="processing-view">
                   <Loader />
-                  <p className="status-text processing">Processing...</p>
+                  <p className="status-text processing">Processing with layout preservation...</p>
                 </div>
               ) : file ? (
                 <div className="file-info-view">
@@ -577,7 +579,7 @@ const Home = () => {
                     <p className="file-name">{file.name}</p>
                     <p className="file-size">{formatFileSize(file.size)}</p>
                   </div>
-                  <p className="status-text ready">Ready to translate </p>
+                  <p className="status-text ready">Ready to translate with layout preservation</p>
                 </div>
               ) : (
                 <div className="upload-prompt">
