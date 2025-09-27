@@ -4,6 +4,7 @@ import Home from "./pages/Home"
 import History from "./pages/History"
 import "./App.css"
 import { TranslationProvider } from "./utils/TranslationContext"
+import Footer from "./components/Footer"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/history" element={<History />} />
           </Routes>
         </main>
+        
       </div>
     </Router>
     </TranslationProvider>

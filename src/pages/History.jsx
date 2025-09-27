@@ -5,6 +5,7 @@ import { MdDelete } from "react-icons/md";
 
 import "./History.css"
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const History = () => {
   const { history, deleteFromHistory, clearHistory } = useTranslation();
@@ -31,7 +32,7 @@ const History = () => {
     element.click();
     document.body.removeChild(element);
   };
-  
+
   const handleDelete = (e, id) => {
     e.stopPropagation();
     deleteFromHistory(id);
@@ -41,11 +42,12 @@ const History = () => {
   };
 
   const handleClearAll = () => {
-      clearHistory();
-      setSelectedTranslation(null);
+    clearHistory();
+    setSelectedTranslation(null);
   };
 
   return (
+    <>
     <div className="history">
       <div className="history-container">
         <div className="history-header">
@@ -63,7 +65,7 @@ const History = () => {
             <div className="empty-icon"><FaHistory /></div>
             <h3>No translations yet</h3>
             <p>Your translation history will appear here after you download a file.</p>
-             <Link to="/" className="btn btn-primary upload-link-btn">
+            <Link to="/" className="btn btn-primary upload-link-btn">
               <FaUpload /> Translate a Document
             </Link>
           </div>
@@ -87,7 +89,7 @@ const History = () => {
                     <div className="card-actions">
                       <button className="action-btn download-btn" onClick={(e) => { e.stopPropagation(); downloadTranslation(translation); }} title="Download translation"><FaDownload /></button>
                       <button className="action-btn delete-btn" onClick={(e) => handleDelete(e, translation.id)} title="Delete translation"><MdDelete />
-</button>
+                      </button>
                     </div>
                   </div>
                   <div className="translation-preview">
@@ -132,6 +134,9 @@ const History = () => {
         )}
       </div>
     </div>
+    <Footer/>
+    </>
+
   )
 }
 
