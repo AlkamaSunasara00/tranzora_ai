@@ -25,7 +25,6 @@ const Footer = () => {
               </div>
               <div className="brand-content">
                 <h2>Tranzora</h2>
-                <span className="brand-subtitle">AI Translation</span>
               </div>
             </Link>
             <p className="footer-description">
@@ -55,7 +54,7 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <p>&copy; {currentYear} Tranzora. All rights reserved.</p>
-          <p>Created with ❤️ by <span className="team-name">Omega</span></p>
+          <p>Created by  <span className="team-name">Team Omega</span></p>
         </div>
       </div>
     </footer>

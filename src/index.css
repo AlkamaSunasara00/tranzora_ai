@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
 
 :root {
   /* Neural Network Theme Colors */
@@ -32,7 +32,7 @@
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
   
   /* Fonts */
-  --font-primary: "Inter", sans-serif;
+  --font-primary: "Lexend Deca", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
   
   /* Transitions */

@@ -25,7 +25,6 @@ const Navbar = () => {
           </div>
           <div className="brand-content">
             <h2>Tranzora</h2>
-            <span className="brand-subtitle">AI Translation</span>
           </div>
         </Link>
 
