@@ -267,7 +267,7 @@ const Home = () => {
   return (
     <div className="page-container">
       <div className="background-effects">
-        <div style={{ width: '100%', height: '600px', position: 'relative' }}>
+        <div style={{ width: '100vw', height: '100vh', position: 'absolute', inset: 0 }}>
           <Prism
             animationType="rotate"
             timeScale={0.5}
@@ -280,8 +280,6 @@ const Home = () => {
             glow={1}
           />
         </div>
-        <div className="gradient-orb orb1"></div>
-        <div className="gradient-orb orb2"></div>
       </div>
 
 
