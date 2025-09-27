@@ -537,103 +537,116 @@ const Home = () => {
             )}
           </div>
         </section>
-          <section className="info-sections-container">
-            <div id="how-it-works" className="info-section">
-              <div className="info-card">
-                <div className="info-header">
-                  <FaRobot className="info-icon" />
-                  <h3>How It Works</h3>
+        <section className="info-sections-container">
+
+          <div id="how-it-works" className="info-section">
+            
+            <div className="info-card">
+              <div className="blob blob1"></div>
+            <div className="blob blob2"></div>
+            <div className="blob blob3"></div>
+              <div className="info-header">
+                <FaRobot className="info-icon" />
+                <h3>How It Works</h3>
+              </div>
+              <div className="info-content">
+                <div className="step-item">
+                  <div className="step-number">1</div>
+                  <div className="step-text">
+                    <strong>Upload Document</strong>
+                    <p>Upload your Nepali or Sinhala document in PDF, DOC, or image format</p>
+                  </div>
                 </div>
-                <div className="info-content">
-                  <div className="step-item">
-                    <div className="step-number">1</div>
-                    <div className="step-text">
-                      <strong>Upload Document</strong>
-                      <p>Upload your Nepali or Sinhala document in PDF, DOC, or image format</p>
-                    </div>
+                <div className="step-item">
+                  <div className="step-number">2</div>
+                  <div className="step-text">
+                    <strong>AI Processing</strong>
+                    <p>Our advanced AI model extracts and translates text while preserving layout</p>
                   </div>
-                  <div className="step-item">
-                    <div className="step-number">2</div>
-                    <div className="step-text">
-                      <strong>AI Processing</strong>
-                      <p>Our advanced AI model extracts and translates text while preserving layout</p>
-                    </div>
-                  </div>
-                  <div className="step-item">
-                    <div className="step-number">3</div>
-                    <div className="step-text">
-                      <strong>Download Result</strong>
-                      <p>Get your translated document in multiple formats with original formatting</p>
-                    </div>
+                </div>
+                <div className="step-item">
+                  <div className="step-number">3</div>
+                  <div className="step-text">
+                    <strong>Download Result</strong>
+                    <p>Get your translated document in multiple formats with original formatting</p>
                   </div>
                 </div>
               </div>
             </div>
-            <div id="features" className="info-section">
-              <div className="info-card">
-                <div className="info-header">
-                  <Sparkles className="info-icon" />
-                  <h3>Why We're Different</h3>
-                </div>
-                <div className="info-content">
-                  <div className="feature-grid">
-                    <div className="feature-item">
-                      <MdTranslate className="feature-icon" />
-                      <h4>Specialized Languages</h4>
-                      <p>Focused specifically on Nepali and Sinhala to English translation with cultural context understanding</p>
-                    </div>
-                    <div className="feature-item">
-                      <FaFileImage className="feature-icon" />
-                      <h4>Layout Preservation</h4>
-                      <p>Maintains original document formatting and structure, unlike generic translation tools</p>
-                    </div>
-                    <div className="feature-item">
-                      <FaRobot className="feature-icon" />
-                      <h4>Advanced AI Model</h4>
-                      <p>Custom-trained AI specifically for South Asian languages with high accuracy</p>
-                    </div>
-                    <div className="feature-item">
-                      <FaDownload className="feature-icon" />
-                      <h4>Multiple Formats</h4>
-                      <p>Export in PDF, DOCX, or TXT while preserving original document structure</p>
-                    </div>
+          </div>
+          <div id="features" className="info-section">
+            <div className="blob blob1"></div>
+            
+            
+            <div className="info-card">
+              <div className="info-header">
+                <div className="blob blob3"></div>
+                <Sparkles className="info-icon" />
+                <h3>Why We're Different</h3>
+              </div>
+              <div className="info-content">
+                <div className="blob blob2"></div>
+                <div className="feature-grid">
+                  <div className="feature-item">
+                    <MdTranslate className="feature-icon" />
+                    <h4>Specialized Languages</h4>
+                    <p>Focused specifically on Nepali and Sinhala to English translation with cultural context understanding</p>
+                  </div>
+                  <div className="feature-item">
+                    <FaFileImage className="feature-icon" />
+                    <h4>Layout Preservation</h4>
+                    <p>Maintains original document formatting and structure, unlike generic translation tools</p>
+                  </div>
+                  <div className="feature-item">
+                    <FaRobot className="feature-icon" />
+                    <h4>Advanced AI Model</h4>
+                    <p>Custom-trained AI specifically for South Asian languages with high accuracy</p>
+                  </div>
+                  <div className="feature-item">
+                    <FaDownload className="feature-icon" />
+                    <h4>Multiple Formats</h4>
+                    <p>Export in PDF, DOCX, or TXT while preserving original document structure</p>
                   </div>
                 </div>
               </div>
             </div>
-            <div id="problem-solution" className="info-section">
-              <div className="info-card problem-solution">
-                <div className="info-header">
-                  <FaGlobe className="info-icon" />
-                  <h3>The Problem & Our Solution</h3>
-                </div>
-                <div className="info-content">
-                  <div className="problem-solution-grid">
-                    <div className="problem-side">
-                      <h4 className="problem-title">The Problem</h4>
-                      <ul className="problem-list">
-                        <li>Limited translation tools for Nepali and Sinhala languages</li>
-                        <li>Generic translators lose document formatting and context</li>
-                        <li>Poor accuracy for South Asian language nuances</li>
-                        <li>No specialized tools for official document translation</li>
-                        <li>Time-consuming manual translation processes</li>
-                      </ul>
-                    </div>
-                    <div className="solution-side">
-                      <h4 className="solution-title">Our Solution</h4>
-                      <ul className="solution-list">
-                        <li>AI model specifically trained for Nepali & Sinhala languages</li>
-                        <li>Advanced layout preservation technology</li>
-                        <li>Cultural context-aware translation algorithms</li>
-                        <li>Professional-grade document processing</li>
-                        <li>Instant, accurate translations with formatting intact</li>
-                      </ul>
-                    </div>
+          </div>
+          <div id="problem-solution" className="info-section">
+            <div className="info-card problem-solution">
+              <div className="blob blob1"></div>
+              <div className="blob blob2"></div>
+              <div className="blob blob3"></div>
+              <div className="info-header">
+                <FaGlobe className="info-icon" />
+                <h3>The Problem & Our Solution</h3>
+              </div>
+              <div className="info-content">
+                <div className="problem-solution-grid">
+                  <div className="problem-side">
+                    <h4 className="problem-title">The Problem</h4>
+                    <ul className="problem-list">
+                      <li>Limited translation tools for Nepali and Sinhala languages</li>
+                      <li>Generic translators lose document formatting and context</li>
+                      <li>Poor accuracy for South Asian language nuances</li>
+                      <li>No specialized tools for official document translation</li>
+                      <li>Time-consuming manual translation processes</li>
+                    </ul>
+                  </div>
+                  <div className="solution-side">
+                    <h4 className="solution-title">Our Solution</h4>
+                    <ul className="solution-list">
+                      <li>AI model specifically trained for Nepali & Sinhala languages</li>
+                      <li>Advanced layout preservation technology</li>
+                      <li>Cultural context-aware translation algorithms</li>
+                      <li>Professional-grade document processing</li>
+                      <li>Instant, accurate translations with formatting intact</li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
         <Footer />
       </main>
 
