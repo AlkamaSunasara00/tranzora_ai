@@ -48,8 +48,22 @@ const Home = () => {
   const [showLanguageSelect, setShowLanguageSelect] = useState(false);
   const [documentStructure, setDocumentStructure] = useState(null);
   const [layoutPreserved, setLayoutPreserved] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const fileInputRef = useRef(null);
   const previewRef = useRef(null);
+
+  // Detect mobile device and screen size
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth <= 768 || 
+                    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      setIsMobile(mobile);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     setIsCompact(!!(file || isProcessing || translatedText));
@@ -397,15 +411,15 @@ const Home = () => {
       <div className="background-effects">
         <div style={{ width: "100vw", height: "100vh", position: "absolute", inset: 0 }}>
           <Prism
-            animationType="rotate"
-            timeScale={0.5}
-            height={3.5}
-            baseWidth={5.5}
-            scale={3.6}
+            animationType={isMobile ? "hover" : "hover"}
+            timeScale={isMobile ? 0 : 0.5}
+            height={isMobile ? 5 : 5}
+            baseWidth={isMobile ? 3 : 5.5}
+            scale={isMobile ? 3 : 3.6}
             hueShift={0}
-            colorFrequency={1}
-            noise={0.5}
-            glow={1}
+            colorFrequency={isMobile ? 0.2 : 1}
+            noise={isMobile ? 0.2 : 0.5}
+            glow={isMobile ? 0.5 : 1}
           />
         </div>
       </div>
