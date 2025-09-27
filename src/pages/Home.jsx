@@ -16,7 +16,7 @@ import {
   FaFileImage,
 } from "react-icons/fa"
 import { MdTranslate, MdDocumentScanner } from "react-icons/md"
-import { ChevronDown, Sparkles } from "lucide-react"
+import { ChevronDown, Sparkles, Copy, Check } from "lucide-react"
 
 import Prism from "../components/Prism"
 import { jsPDF } from "jspdf"
@@ -320,34 +320,120 @@ const Home = () => {
     saveAs(blob, `translation_${selectedLanguage}.docx`)
   }
 
-  const renderPreservedLayout = () => {
-    if (!layoutPreserved || !documentStructure) {
-      return <pre className="translated-text-content">{translatedText}</pre>
+    const [copiedStates, setCopiedStates] = useState({});
+
+  // Parse content to extract title and body
+  const parseContent = (content) => {
+    if (!content) return { title: '', body: '' };
+    
+    const lines = content.split('\n');
+    const firstLine = lines[0]?.trim() || '';
+    const remainingContent = lines.slice(1).join('\n').trim();
+    
+    // Check if first line looks like a title (shorter, no periods at end, etc.)
+    const isTitle = firstLine.length < 100 && 
+                   !firstLine.endsWith('.') && 
+                   !firstLine.endsWith('!') && 
+                   !firstLine.endsWith('?') &&
+                   firstLine.length > 0;
+    
+    return {
+      title: isTitle ? firstLine : 'Translated Document',
+      body: isTitle ? remainingContent : content
+    };
+  };
+
+  const handleCopy = async (content, id = 'main') => {
+    try {
+      await navigator.clipboard.writeText(content);
+      setCopiedStates(prev => ({ ...prev, [id]: true }));
+      setTimeout(() => {
+        setCopiedStates(prev => ({ ...prev, [id]: false }));
+      }, 2000);
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
     }
+  };
+
+  const CopyButton = ({ content, id = 'main', className = '' }) => {
+    const isCopied = copiedStates[id];
+    
+    return (
+      <button
+        onClick={() => handleCopy(content, id)}
+        className={`copy-button ${className} ${isCopied ? 'copied' : ''}`}
+        title={isCopied ? 'Copied!' : 'Copy to clipboard'}
+      >
+        {isCopied ? <Check size={16} /> : <Copy size={16} />}
+        <span className="copy-text">
+          {isCopied ? 'Copied!' : 'Copy'}
+        </span>
+      </button>
+    );
+  };
+
+
+ const renderPreservedLayout = () => {
+    if (!layoutPreserved || !documentStructure) {
+      const { title, body } = parseContent(translatedText);
+      
+      return (
+        <div className="simple-document">
+          <div className="document-header">
+            <h3 className="document-title">{title}</h3>
+            <CopyButton content={translatedText} />
+          </div>
+          <div className="document-content-wrapper">
+            <pre className="translated-text-content">{body}</pre>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="document-layout-container">
-        {documentStructure.pages.map((page, pageIndex) => (
-          <div key={pageIndex} className="document-page">
-            <div className="page-header">
-              <span className="page-number">Page {page.pageNumber}</span>
-              <span>Layout Preserved</span>
-            </div>
-            <div className="layout-preserved-content">
-              {page.layoutElements && page.layoutElements.length > 0 ? (
-                page.layoutElements.map((element, elemIndex) => (
-                  <div key={elemIndex} className={`text-block ${element.type || "paragraph"}`}>
-                    {element.translatedText || element.text}
-                  </div>
-                ))
-              ) : (
-                <div className="layout-preserved-content">{page.translatedText}</div>
+        {documentStructure.pages.map((page, pageIndex) => {
+          const pageContent = page.layoutElements?.length > 0 
+            ? page.layoutElements.map(el => el.translatedText || el.text).join('\n')
+            : page.translatedText;
+          
+          const { title, body } = parseContent(pageContent);
+          
+          return (
+            <div key={pageIndex} className="document-page">
+              <div className="page-header">
+                <div className="page-info">
+                  <span className="page-number">Page {page.pageNumber}</span>
+                  <span className="layout-badge">Layout Preserved</span>
+                </div>
+                <CopyButton 
+                  content={pageContent} 
+                  id={`page-${pageIndex}`}
+                  className="page-copy-button"
+                />
+              </div>
+              
+              {title && title !== 'Translated Document' && (
+                <h4 className="page-title">{title}</h4>
               )}
+              
+              <div className="layout-preserved-content">
+                {page.layoutElements && page.layoutElements.length > 0 ? (
+                  page.layoutElements.map((element, elemIndex) => (
+                    <div key={elemIndex} className={`text-block ${element.type || "paragraph"}`}>
+                      {element.translatedText || element.text}
+                    </div>
+                  ))
+                ) : (
+                  <pre className="page-content">{body || pageContent}</pre>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
-    )
-  }
+    );
+  };
 
   const uploadAreaClasses = ["upload-area", isCompact && "compact", isDragOver && "drag-over", file && !isProcessing && "file-selected", isProcessing && "processing"].filter(Boolean).join(" ")
 
