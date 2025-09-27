@@ -3,12 +3,9 @@ import { useTranslation } from '../utils/TranslationContext';
 import { FaDownload } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
 import { FaFileAlt } from "react-icons/fa";
-import { FaHistory } from "react-icons/fa";
-
-
-
-
+import { FaHistory , FaUpload} from "react-icons/fa";
 import "./History.css"
+import { Link } from "react-router-dom";
 
 const History = () => {
   const { history, deleteFromHistory, clearHistory } = useTranslation();
@@ -64,10 +61,26 @@ const History = () => {
 
         {history.length === 0 ? (
           <div className="empty-state">
-            <div className="empty-icon"><FaHistory />
-</div>
+            <div className="empty-icon"><FaHistory /></div>
+              <div className="supported-file-types">
+    <div className="file-type">
+      <FaImage className="file-type-icon image" /><span>Image</span>
+    </div>
+    <div className="file-type">
+      <FaFilePdf className="file-type-icon pdf" /><span>PDF</span>
+    </div>
+    <div className="file-type">
+      <FaFileWord className="file-type-icon docx" /><span>DOC/DOCX</span>
+    </div>
+    <div className="file-type">
+      <FaFileAlt className="file-type-icon txt" /><span>TXT</span>
+    </div>
+  </div>
             <h3>No translations yet</h3>
             <p>Your translation history will appear here after you download a file.</p>
+             <Link to="/" className="btn btn-primary upload-link-btn">
+              <FaUpload /> Translate a Document
+            </Link>
           </div>
         ) : (
           <div className="history-content">

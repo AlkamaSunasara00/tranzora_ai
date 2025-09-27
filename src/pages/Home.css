@@ -33,7 +33,7 @@
 
 /* === PAGE LAYOUT === */
 .page-container {
-  min-height: 100vh; position: relative; display: flex; align-items: center;
+  max-height: 100vh; position: relative; display: flex; align-items: center;
   justify-content: center; padding: 1rem; overflow: hidden;
   background: var(--color-bg-secondary); color: var(--color-text-primary);
   padding: 50px 1rem 2rem 1rem;
@@ -71,7 +71,7 @@
 
 /* === MAIN UPLOAD CARD === */
 .main-content-card {
-  background: rgba(81, 80, 80, 0.384); backdrop-filter: blur(10px); border: 1px solid var(--glass-border);
+  background: rgba(81, 80, 80, 0.511); backdrop-filter: blur(10px); border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--glass-shadow);
 }
 .language-selection-container { margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem; color: var(--color-text-muted); font-size: 0.9rem; }
@@ -85,11 +85,11 @@
 .language-dropdown button.selected { background: rgba(82, 39, 255, 0.2); }
 
 /* === UPLOAD AREA === */
-.upload-area { position: relative; border: 2px dashed var(--glass-border); border-radius: var(--radius-md); padding: 2.5rem 1rem; cursor: pointer; transition: var(--transition-smooth); text-align: center; }
+.upload-area { position: relative; border: 2px dashed var(--glass-border); border-radius: var(--radius-md); padding: 2rem 1rem; cursor: pointer; transition: var(--transition-smooth); text-align: center; }
 .upload-area.drag-over { border-color: var(--color-primary); background: rgba(0, 212, 255, 0.1); }
 .upload-area.file-selected { border-color: var(--color-success); }
 .upload-area.processing { border-color: var(--color-primary); cursor: default; }
-.upload-icon-wrapper { display: inline-flex; align-items: center; justify-content: center; width: 4rem; height: 4rem; border-radius: 50%; margin-bottom: 1rem; background: rgba(255, 255, 255, 0.1); font-size: 2rem; }
+.upload-icon-wrapper { display: inline-flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; border-radius: 50%; margin-bottom: 0.5rem; background: rgba(255, 255, 255, 0.1); font-size: 2rem; }
 .file-selected .upload-icon-wrapper { background: var(--color-success); box-shadow: 0 0 20px rgba(16, 185, 129, 0.4); }
 .upload-prompt h3 { font-size: 1.25rem; font-weight: 600; margin: 0 0 0.5rem 0; }
 .upload-prompt p { color: var(--color-text-secondary); margin: 0; }
@@ -146,4 +146,33 @@
   .page-container{
   padding: 10px 1rem 2rem 1rem;
   }
+}
+
+
+.supported-file-types {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.file-type {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.30rem;
+}
+
+.file-type-icon {
+  font-size: 1.6rem;
+}
+
+.file-type-icon.image { color: #47a8f5; }
+.file-type-icon.pdf { color: #ef4444; }
+.file-type-icon.docx { color: #3b82f6; }
+.file-type-icon.txt { color: #a6adbb; }
+
+.file-type span {
+  font-size: 1rem;
+  color: var(--color-text-muted, #050505); /* fallback color */
 }

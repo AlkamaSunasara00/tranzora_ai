@@ -70,7 +70,7 @@ body {
 
 .empty-state {
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 1rem 1rem;
   max-width: 500px;
   margin: 2rem auto;
   background: var(--glass-bg);
@@ -91,6 +91,13 @@ body {
 .empty-state p {
   color: var(--color-text-secondary);
   font-size: 1rem;
+}
+
+/* === Add this to your History.css file === */
+
+.upload-link-btn {
+  margin-top: 2rem;
+  text-decoration: none; /* Removes underline from the Link component */
 }
 
 /* === CARDS GRID === */
