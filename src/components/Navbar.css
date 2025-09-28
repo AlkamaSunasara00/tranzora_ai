@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: var(--glass-bg);
+  background: rgb(88 88 89 / 53%);
   backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--glass-border);
   padding: 0;
@@ -364,6 +364,6 @@
 /* Glassmorphism enhancement for navbar */
 @supports (backdrop-filter: blur(24px)) {
   .navbar {
-    background: rgba(10, 11, 13, 0.8);
+  background: rgba(53, 53, 53, 0.811);
   }
 }
