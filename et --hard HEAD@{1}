@@ -1,0 +1,22 @@
+[33mb98cc89[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: commit: make some changes in ui
+[33m108094b[m HEAD@{1}: merge origin/main: updating HEAD
+[33m108094b[m HEAD@{2}: pull origin main: updating HEAD
+[33m108094b[m HEAD@{3}: commit: final changes
+[33m41e3b25[m HEAD@{4}: commit: final changes
+[33mf460963[m HEAD@{5}: commit: final changes
+[33m0824cd0[m HEAD@{6}: commit: final changes
+[33me2f121f[m HEAD@{7}: commit: final changes
+[33md4b4fb9[m HEAD@{8}: commit: make some changes in ui
+[33mb0a1007[m HEAD@{9}: commit: make some changes in ui
+[33ma46b75c[m HEAD@{10}: commit: make some changes in ui
+[33m2926f26[m HEAD@{11}: commit: make some changes in ui
+[33m3ea7afd[m HEAD@{12}: commit: make some changes in ui
+[33m1f548a1[m HEAD@{13}: commit: make some changes in ui
+[33m003b9b9[m HEAD@{14}: commit: make some changes in ui
+[33mb88d29f[m HEAD@{15}: commit: make some changes in ui
+[33m14325a7[m HEAD@{16}: commit: Fix: change the background
+[33ma457269[m HEAD@{17}: commit: Fix: change the background
+[33m0e24250[m HEAD@{18}: commit: Fix: change the background
+[33m4685b61[m HEAD@{19}: commit: Fix: Use relative path for main.jsx
+[33me440793[m HEAD@{20}: commit: Fix: Correct relative path for main.jsx in index.html
+[33m8b8e998[m HEAD@{21}: commit (initial): Initial commit
